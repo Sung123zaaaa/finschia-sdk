@@ -1,6 +1,8 @@
 # Sample tx commands for modules
 
 ## Auth
+# Bech32 Val is operator address of validator0
+simd debug addr link146asaycmtydq45kxc8evntqfgepagygelel00h --home ~/.simapp/simapp0
 
 **Create new account**
 ```
@@ -11,8 +13,8 @@ simd keys list --keyring-backend test --home ~/.simapp/simapp0
 ```
 
 Let the user0 and validator0 **account address** be each 
-* **user0: link1lu5hgjp2gyvgdpf674aklzrpdeuyhjr4fsuqrj**
-* **validator0: link146asaycmtydq45kxc8evntqfgepagygelel00h**
+* **user0: link1p0nxwvcakphh8cce730r5qv2dc0sszcpl8dmlk**
+* **validator0: link139e83scgws057mgt59yq4dc500fx3t4dspu65p**
 
 If you run multi node, home option's value can be ~/.simapp/simapp1, ~/.simapp/simapp2, ...
 You can get same result whatever --home option you use
@@ -46,9 +48,9 @@ simd query bank balances link146asaycmtydq45kxc8evntqfgepagygelel00h --home ~/.s
 **Staking(deligate)**
 ```
 # Bech32 Val is operator address of validator0
-simd debug addr link146asaycmtydq45kxc8evntqfgepagygelel00h --home ~/.simapp/simapp0
+simd debug addr link139e83scgws057mgt59yq4dc500fx3t4dspu65p --home ~/.simapp/simapp0
 ```
-Let the **validator0 operator address** be **linkvaloper146asaycmtydq45kxc8evntqfgepagygeddajpy**
+Let the **validator0 operator address** be **link1p0nxwvcakphh8cce730r5qv2dc0sszcpl8dmlk**
 
 &nbsp;
 
@@ -61,7 +63,7 @@ simd tx staking delegate linkvaloper146asaycmtydq45kxc8evntqfgepagygeddajpy 1000
 simd query staking validators --chain-id sim --home ~/.simapp/simapp0
 
 # undeligate 10000000000stake from validator
-simd tx staking unbond linkvaloper146asaycmtydq45kxc8evntqfgepagygeddajpy 10000000000stake --from link1lu5hgjp2gyvgdpf674aklzrpdeuyhjr4fsuqrj --keyring-backend test --chain-id sim --home ~/.simapp/simapp0
+simd tx staking unbond link1p0nxwvcakphh8cce730r5qv2dc0sszcpl8dmlk 10000000000stake --from link139e83scgws057mgt59yq4dc500fx3t4dspu65p --keyring-backend test --chain-id sim --home ~/.simapp/simapp0
 
 # check if undeligation was successful
 simd query staking validators --chain-id sim --home ~/.simapp/simapp0
@@ -95,7 +97,7 @@ simd tx gov vote 1 No --from link1h82llw7m5rv05nal6nj92ce7wm6tkq4c4xsk99 --keyri
 
 Or you can use weighted voting
 ```
-simd tx gov weighted-vote 1 yes=0.5,no=0.3,no_with_veto=0.2 --from link146asaycmtydq45kxc8evntqfgepagygelel00h --keyring-backend test --chain-id sim --home ~/.simapp/simapp0
+simd tx gov weighted-vote 1 yes=0.5,no=0.3,no_with_veto=0.2 --from linklink139e83scgws057mgt59yq4dc500fx3t4dspu65p eyring-backend test --chain-id sim --home ~/.simapp/simapp0
 ```
 
 And you can see the voting status
